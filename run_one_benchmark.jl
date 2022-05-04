@@ -5,7 +5,7 @@ using Printf
 gctime(stat) = stat.total_time
 
 const BENCH = isempty(ARGS) ? "benches/append/append.jl" : ARGS[1]
-const RUNS = isempty(ARGS) ? 10 : parse(Int, ARGS[2])
+const RUNS = (isempty(ARGS) || length(ARGS) < 2) ? 10 : parse(Int, ARGS[2])
 const JULIAVER = Base.julia_cmd()[1]
 
 path = split(BENCH, "/")
